@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -36,6 +37,7 @@ public class BeerDto {
     private OffsetDateTime lastModifiedDate;
 
     @NotBlank
+    @Length(min = 3, max = 100)
     private String beerName;
 
     @NotNull
@@ -49,6 +51,7 @@ public class BeerDto {
     @NotNull
     private BigDecimal price;
 
+    @Positive
     private Integer quantityOnHand;
 
 }
